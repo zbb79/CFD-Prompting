@@ -71,11 +71,10 @@ for index in pbar:
             vote_answer=""
 
     if predicted_answer is None:
-        em = 0  # 或者根据你的逻辑设置一个默认值
+        em = 0  
         f1 = 0
     else:
         em = int(predicted_answer.strip().lower() == correct_answer.strip().lower())
-    # 计算 F1 分数
         correct_tokens = set(correct_answer.lower().split())
         predicted_tokens = set(predicted_answer.lower().split())
         common_tokens = correct_tokens & predicted_tokens
@@ -87,7 +86,6 @@ for index in pbar:
             f1 = 0
 
 
-    # 更新统计变量
     stats['total_em'] += em
     stats['total_f1'] += f1
     stats['total_questions'] += 1
@@ -95,13 +93,11 @@ for index in pbar:
     stats['running_em'] = stats['total_em'] / stats['total_questions']
     stats['running_f1'] = stats['total_f1'] / stats['total_questions']
 
-    # 更新进度条的后缀信息
     pbar.set_postfix({
         'EM': f"{stats['running_em']:.4f}",
         'F1': f"{stats['running_f1']:.4f}"
     })
 
-    # 立即保存当前结果到 CSV 文件（追加模式）
     with open(RESULTS_FILE, 'a', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=['question', 'correct_answer', 'predicted_answer'])
         writer.writerow({
