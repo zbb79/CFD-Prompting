@@ -1,7 +1,7 @@
 # CFD-Prompting
+## File Explanation
 cdf_prompt.py: The CFD_Prompting main function file.<br>
 train.py: Dataset test file.<br>
-## File Explanation
 data: Store the test dataset.<br>
 ### encoder
 Encoder.py: Call the encoder file.<br>
