@@ -5,7 +5,6 @@ from transformers import BertModel, BertTokenizer
 from torch.optim import AdamW
 from tqdm import tqdm
 
-# 配置参数
 CONFIG = {
     "model_path": "models/bert-base-uncased",
     "batch_size": 32,
