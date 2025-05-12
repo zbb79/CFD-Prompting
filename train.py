@@ -6,8 +6,8 @@ import os
 import csv
 
 
-DATA_PATH = "data/sampled_hotpotqa.csv"
-OUTPUT_DIR = "out2/denghotpot2_cfd_llama33"
+DATA_PATH = "data/ "
+OUTPUT_DIR = "out/ "
 RESULTS_FILE = f"{OUTPUT_DIR}/results.csv"
 STATS_FILE = f"{OUTPUT_DIR}/stats.json"
 
@@ -66,9 +66,7 @@ for index in pbar:
     try:
         predicted_answer=  CFD_CoT(question,support)
     except Exception as e:
-
             predicted_answer = ""
-            vote_answer=""
 
     if predicted_answer is None:
         em = 0  
