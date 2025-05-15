@@ -1,6 +1,7 @@
 # CFD-Prompting
 ## File Explanation
 cdf_prompt.py: The CFD_Prompting main function file.<br>
+cdf_prompt.py: The main function of the CFD_Prompting method without clustering-based filtering, used for ablation studies.<br>
 train.py: Dataset test file.<br>
 data: Store the test dataset.<br>
 ### encoder
