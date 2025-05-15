@@ -6,9 +6,9 @@ import warnings
 warnings.filterwarnings("ignore", category=UserWarning, message="TypedStorage is deprecated.*")
 
 current_dir = Path(__file__).parent
-data_path = current_dir.parent / 'models' / 'funing_model'
-model = BertModel.from_pretrained(data_path)
-tokenizer = BertTokenizer.from_pretrained(data_path)
+model_path = current_dir.parent / 'models' / 'funing_model'
+model = BertModel.from_pretrained(model_path)
+tokenizer = BertTokenizer.from_pretrained(model_path)
 def encoder(sentences):
     embeddings = []
     for sentence in sentences:
