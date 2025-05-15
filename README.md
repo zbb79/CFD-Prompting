@@ -4,7 +4,7 @@ cdf_prompt.py: The CFD_Prompting main function file.<br>
 train.py: Dataset test file.<br>
 data: Store the test dataset.<br>
 ### encoder
-Encoder.py: Call the encoder file.<br>
+Encoder.py: Call the encoder file,and in the ablation study, the corresponding encoder model can be replaced simply by changing the “model_path” parameter in the file.<br>
 ### llm
 getllm.py: Store the large model interface and the calling file.<br>
 ### model
