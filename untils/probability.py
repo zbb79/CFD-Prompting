@@ -26,7 +26,7 @@ def p_C_A(a, A, E, t):
     similarities = cosine_similarity(vector_a, vectors_B).flatten()
 
 
-    threshold = 
+    threshold = ""
     high_sim_indices = np.where(similarities >= threshold)[0]
     high_sim_count = len(high_sim_indices)
     high_sim_ratio = high_sim_count / len(B)
