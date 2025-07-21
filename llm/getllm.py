@@ -50,7 +50,7 @@ def generate_cot(E,t,M):
     Path=[]
     Answer=[]
     for i in range(M):
-        path=response.choices[0].message.content.strip()
+        path=response.choices[i].message.content.strip()
         Path.append(path)
         answer=extract_cot_and_answer(path)
         Answer.append(answer)
