@@ -5,29 +5,6 @@ import numpy as np
 from llm.getllm import generate_cot
 import re
 
-def preprocess(text):
-    text = text.lower()
-    
-    templates = [
-        r"Based on the provided context[:,]?",
-        r"we need to follow these steps[:,]?",
-        r"here'?s how we can analyze this step by step[:,]?",
-        r"let'?s follow these steps[:,]?",
-        r"to solve this problem,? we.*?,",
-        r"in order to.*?,",
-        r"to determine.*?,",
-        r"first[,:\s]*",
-        r"step \d+[:,]?",
-    ]
-    
-    for pattern in templates:
-        text = re.sub(pattern, '', text, flags=re.IGNORECASE)
-    text = re.sub(r'according to para \d+', '', text, flags=re.IGNORECASE)
-
-    text = re.sub(r'\s+', ' ', text).strip()
-    
-    return text
-
 
 def p_C_A(a, A, E, t):
     a=preprocess(a)
@@ -50,7 +27,7 @@ def p_C_A(a, A, E, t):
     similarities = cosine_similarity(vector_a, vectors_B).flatten()
 
 
-    threshold = ""
+    threshold = "0.999"
     high_sim_indices = np.where(similarities >= threshold)[0]
     high_sim_count = len(high_sim_indices)
     high_sim_ratio = high_sim_count / len(B)
